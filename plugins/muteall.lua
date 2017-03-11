@@ -1,6 +1,5 @@
--- by @Blackwolf_admin 
---edit by @Mrr619
--- channel : @antispamandhack
+-- by @freemt
+--edit by @ahriman110
 do
 local function pre_process(msg)
  local hash = 'muteall:'..msg.to.id
@@ -11,7 +10,7 @@ local function pre_process(msg)
  end
  
 local function run(msg, matches)
- if matches[1] == 'muteall'or matches[1] =='ساکت کردن همه' and is_momod(msg) then
+ if matches[1] == 'muteall' and is_momod(msg) or matches[1] =='ساکت کردن همه' and is_momod(msg) then
        local hash = 'muteall:'..msg.to.id
        if not matches[2] then
               redis:set(hash, true)
@@ -29,7 +28,7 @@ redis:setex(hash, num4, true)
  return "mute all has been enabled for\n⏺ hour(s) : "..matches[2].."\n⏺ minute(s) : "..matches[3].." \n⏺ second(s) : "..matches[4]..""
  end
  end
-if matches[1] == 'unmuteall'or matches[1] =='مصوت کردن همه' and is_momod(msg) then
+if matches[1] == 'unmuteall' and is_momod(msg) or matches[1] =='مصوت کردن همه' and is_momod(msg) then
                local hash = 'muteall:'..msg.to.id
         redis:del(hash)
           return "mute all has been disabled"
@@ -48,6 +47,5 @@ run = run,
   pre_process = pre_process
 }
 end
--- by @Blackwolf_admin 
--- edit by @Mrr619
--- our channel : @antispamandhack 
+-- by @ahriman110
+-- edit by @freemt

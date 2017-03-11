@@ -9,7 +9,7 @@ local function history(extra, suc, result)
   end
 end
 local function run(msg, matches)
-  if matches[1] == 'clean' or matches[1] =='حذف' or matches[1] == 'rm' and is_owner(msg) then
+  if matches[1] == 'clean' and is_owner(msg) or matches[1] =='حذف' and is_owner(msg) or matches[1] == 'rm' and is_owner(msg) then
     if msg.to.type == 'channel' then
       if tonumber(matches[2]) > 200 or tonumber(matches[2]) < 1 then
         return "☆تعداد بیشتر از حد مجاز است\n》لطفا عددی بین 1-100 انتخاب کنید."
